@@ -1,29 +1,41 @@
 import './App.css';
-import Card from './components/Card/Card.jsx';
 import Cards from './components/Cards/Cards.jsx';
-import SearchBar from './components/SearchBar/SearchBar.jsx';
-import characters, { Rick } from './data.js';
-import style from './App.module.css'
-import NavBar from './components/NavBar/NavBar';
+import Nav from './components/Nav/Nav'
+import { useState } from 'react';
+import axios from 'axios'
+import {Routes, Route} from 'react-router-dom'
+import About from './components/About/About.jsx';
+import Detail from './components/Detail/Detail.jsx';
+import LandingPage from './components/LandingPage/LandingPage.jsx'
 
 function App() {
-   return (
-      <div className={style.App}>
-         <NavBar />
-         {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
-         <Cards characters={characters} />
-         {/* <Card */}
-            // id={Rick.id}
-            // name={Rick.name}
-            // status={Rick.status}
-            // species={Rick.species}
-            // gender={Rick.gender}
-            // origin={Rick.origin.name}
-            // image={Rick.image}
-            // // onClose={() => window.alert('Emulamos que se cierra la card')}
-         {/* // /> */}
-      </div>
-   );
+  const [characters, setCharacters] = useState([]);
+  
+  const onSearch = (id) => {
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      if (data.name) {
+          setCharacters((characters) => [...characters, data]);
+      } else {
+          window.alert('¡No hay personajes con este ID!');
+      }
+    });
+  };
+  const onClose = (id) => {
+    const filteredCharacters = characters.filter((char) => Number(char.id) !== Number(id));
+    setCharacters(filteredCharacters);
+  };
+  
+  return (
+    <>
+      <Nav onSearch={onSearch}/>
+      <Routes>
+        <Route path='/' element={<LandingPage/>}/>
+        <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/detail/:id' element={<Detail/>}/>
+      </Routes>
+    </>
+  );
 }
 
 export default App;

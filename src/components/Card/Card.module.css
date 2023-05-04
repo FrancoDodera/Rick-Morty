@@ -1,48 +1,81 @@
+.card {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease-out;
+  width: 300px;
+  align-items: center;
+  margin: 1em;
+  padding: 1em;
+  border: solid 1px #000;
+}
 
-/* .cards { */
-    /* position: relative; */
-    /* width: 300px; */
-    /* height: 350px; */
-    /* margin: 20px; */
-  /* } */
-/*    */
-  /* .cards .face { */
-    /* position: absolute; */
-    /* width: 100%; */
-    /* height: 100%; */
-    /* backface-visibility: hidden; */
-    /* border-radius: 10px; */
-    /* overflow: hidden; */
-    /* transition: .5s; */
-  /* } */
-  /* .cards .front { */
-    /* transform: perspective(600px) rotateY(0deg); */
-    /* box-shadow: 0 5px 10px #fff; */
-  /* } */
-/*  */
-  /* .cards .front img { */
-    /* width: 298px; */
-    /* height: 290px; */
-/*     */
-    /* object-fit: cover; */
-    /* overflow: hidden; */
-/*      */
-  /* } */
-  /* .cards .back { */
-    /* transform: perspective(600px) rotateY(180deg); */
-    /* background: rgb(3, 35, 54); */
-    /* padding: 15px; */
-    /* color: #f3f3f3; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
-    /* text-align: center; */
-    /* box-shadow: 0.5px 10px #fff; */
-  /* } */
-/*     */
-  /* .cards:hover .front{ */
-    /* transform: perspective(600px) rotateY(180deg) */
-  /* } */
-  /* .cards:hover .back{ */
-    /* transform: perspective(600px) rotateY(360deg) */
-  /* } */
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cardImage {
+  height: 300px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10%;
+}
+
+.cardDetails {
+  padding: 1rem;
+}
+
+.cardName {
+  color: #1b1b1b;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.cardInfo {
+  margin-bottom: 0.5rem;
+}
+
+.cardInfoLabel {
+  color: #666;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.cardInfoValue {
+  font-size: 0.9rem;
+}
+
+.cardStatus {
+  background-color: aqua;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.cardClose {
+  background-color: #f7f7f7;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+a {
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}

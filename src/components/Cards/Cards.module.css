@@ -1,11 +1,8 @@
-.contenedor{
-    display: flex;
-    flex-wrap: wrap;
-    text-align:center;
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: center;
-    margin: auto;
-    padding: 20px;
-
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #c5c5c5a2;
 }
