@@ -38,6 +38,10 @@ const Card = ({
             <span className={style.cardInfoLabel}>Origin:</span>
             <span className={style.cardInfoValue}>{origin}</span>
           </div>
+          <div className={style.cardInfo}>
+            <span className={style.cardInfoLabel}>Status:</span>
+            <span className={style.cardInfoValue}>{status}</span>
+          </div>
         </div>
       </Link>
     </div>

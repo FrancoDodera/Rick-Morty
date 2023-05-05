@@ -4,7 +4,7 @@ import style from "./Nav.module.css";
 
 const Nav = ({ onSearch }) => {
   return (
-    <div className={style.contaier}>
+    <div className={style.container}>
       <NavLink to={"/about"} className={style.about}>
         <button>About</button>
       </NavLink>
