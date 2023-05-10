@@ -10,6 +10,7 @@
   margin: 1em;
   padding: 1em;
   border: solid 1px #000;
+  font-family: "Righteous", cursive;
 }
 
 .card:hover {
@@ -30,10 +31,10 @@
 .cardName {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #fcba03;
+  color: #470b0b;
   margin-bottom: 10px;
-  text-shadow: 1px 1px #1b1b1b;
   text-align: center;
+  text-decoration: double;
 }
 
 .cardInfo {
@@ -84,4 +85,19 @@ a {
 .card:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
+}
+.cardButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.5em;
+  width: 40px;
+  height: 40px;
+  background-color: #350f0f;
+  color: #ff0000;
+  border: 1px solid #ff000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }

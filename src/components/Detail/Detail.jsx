@@ -23,10 +23,10 @@ const Detail = () => {
       <img className={style.cardimage} src={character.image} alt="" />
       <div className={style.cardinfo}>
         <h1 className={style.cardname}>{character.name}</h1>
-        <h2 className={style.cardspecies}>{character.species}</h2>
-        <h2 className={style.cardgender}>{character.gender}</h2>
-        <h2 className={style.cardorigin}>{character.origin?.name}</h2>
-        <h2 className={style.cardstatus}>{character.status}</h2>
+        <h2 className={style.cardspecies}>Especie:{character.species}</h2>
+        <h2 className={style.cardgender}>Genero:{character.gender}</h2>
+        <h2 className={style.cardorigin}>Origen:{character.origin?.name}</h2>
+        <h2 className={style.cardstatus}>Status:{character.status}</h2>
       </div>
     </div>
   );

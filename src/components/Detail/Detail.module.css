@@ -3,17 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f7f7f7;
+  background-color: #45646ad9;
   border: 1px solid #1b1b1b;
   border-radius: 10px;
   box-shadow: 0px 0px 5px 0px #1b1b1b;
   padding: 20px;
-  width: 80%;
-  max-width: 600px;
+  width: 70%;
+  max-width: 400px;
   margin: 0 auto;
   margin-top: 10px;
-  transition: box-shadow 0.3s ease-in-out;
-  background: linear-gradient(180deg, #f7f7f7 0%, #e2e2e2 100%);
+  font-family: "Righteous", cursive;
 }
 
 .card:hover {
@@ -21,9 +20,6 @@
 }
 
 .cardimage {
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
   object-fit: cover;
   margin-bottom: 20px;
   border: 5px solid #fff;
@@ -34,15 +30,16 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+  color: white;
 }
 
 .cardname {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #fcba03;
+  color: #069dc2;
   margin-bottom: 10px;
-  text-shadow: 1px 1px #1b1b1b;
   text-align: center;
+  text-decoration: double;
 }
 .cardname:hover {
   transform: scale(1.05);
@@ -57,4 +54,6 @@
   margin-bottom: 10px;
   text-align: center;
   line-height: 1.2;
+  color: rgb(243, 235, 235);
+  letter-spacing: 1.5px;
 }

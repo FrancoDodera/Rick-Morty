@@ -8,6 +8,7 @@ import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import Form from "./components/Form/Form";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   // HOOKS
@@ -18,7 +19,7 @@ function App() {
 
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, [access, navigate]);
 
   // CREDENCIALES DE ACCESO
   const username = "francododera@gmail.com";
@@ -68,6 +69,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );

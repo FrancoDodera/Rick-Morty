@@ -1,8 +1,7 @@
 .container {
-  justify-content: end;
-  text-align: end;
+  justify-content: center;
+  text-align: center;
   align-items: center;
-  background: linear-gradient(135deg, #2f0d1d, #480d28, #780d2e);
   padding: 10px;
 }
 
