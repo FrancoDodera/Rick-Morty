@@ -35,6 +35,8 @@
   margin-bottom: 10px;
   text-align: center;
   text-decoration: double;
+  height: 49px;
+  overflow: hidden;
 }
 
 .cardInfo {
