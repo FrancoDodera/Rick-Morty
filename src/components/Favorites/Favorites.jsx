@@ -2,11 +2,15 @@ import { connect, useDispatch } from "react-redux";
 import Card from "../Card/Card";
 import style from "./Favorites.module.css";
 import { filterCards, orderCards } from "../../redux/action";
+import { useState } from "react";
 
 const Favorites = ({ myFavorites }) => {
+  const [aux, setAux] = useState(false);
+
   const dispatch = useDispatch();
   const handleOrder = (event) => {
     dispatch(orderCards(event.target.value));
+    setAux(!aux);
   };
   const handleFilter = (event) => {
     dispatch(filterCards(event.target.value));
@@ -23,7 +27,7 @@ const Favorites = ({ myFavorites }) => {
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Genderless">Genderless</option>
-        <option value=" unknown"> unknown</option>
+        <option value="unknown"> unknown</option>
       </select>
       <div className={style.container}>
         {myFavorites.map(
