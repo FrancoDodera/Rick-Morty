@@ -5,12 +5,12 @@ import validate from "./validation";
 
 const Form = ({ login }) => {
   const [userData, setUserData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -30,17 +30,17 @@ const Form = ({ login }) => {
     <div className={style.container}>
       <img className={style.image} src={gif} alt="forms" />
       <form className={style.form} onSubmit={handleSubmit}>
-        <label htmlFor="username" className={style.label}>
+        <label htmlFor="email" className={style.label}>
           Email:
         </label>
         <input
           onChange={handleInputChange}
-          value={userData.username}
+          value={userData.email}
           type="text"
-          name="username"
+          name="email"
           className={style.input}
         />
-        <p className={style.error}>{errors.username}</p>
+        <p className={style.error}>{errors.email}</p>
         <br />
         <label htmlFor="password" className={style.label}>
           Password:

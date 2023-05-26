@@ -14,27 +14,41 @@ function App() {
   // HOOKS
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
-  const [access, setAcces] = useState(false);
+  const [access, setAccess] = useState(false);
   const navigate = useNavigate();
+
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = `http://localhost:3001/rickandmorty/login/?email=${email}&password=${password}`;
+      const { data } = await axios.get(URL);
+      const { access } = data;
+      setAccess(access);
+      if (access) {
+        navigate("/home");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     !access && navigate("/");
   }, [access, navigate]);
 
-  // CREDENCIALES DE ACCESO
-  const username = "francododera@gmail.com";
-  const password = "fran1234";
-
-  const onSearch = (id) => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((characters) => [...characters, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+  const onSearch = async (id) => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      if (data.name) {
+        setCharacters((characters) => [...characters, data]);
+      } else {
+        window.alert("¡No hay personajes con este ID!");
       }
-    );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const onClose = (id) => {
@@ -44,22 +58,12 @@ function App() {
     setCharacters(filteredCharacters);
   };
 
-  const login = (userData) => {
-    if (userData.username === username && userData.password === password) {
-      setAcces(true);
-      navigate("/home");
-    } else {
-      alert("Credenciales incorrectas!");
-    }
-  };
-
   return (
     <>
       {location.pathname === "/" ? (
         <Form login={login} />
-        
       ) : (
-        location.pathname !== "/favorites" && <Nav onSearch={onSearch}  />
+        location.pathname !== "/favorites" && <Nav onSearch={onSearch} />
       )}
 
       <Routes>
@@ -72,7 +76,6 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
-      
     </>
   );
 }
